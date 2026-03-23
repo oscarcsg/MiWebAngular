@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Auth } from '../../../auth';
+import { RedirectCommand, Route, Router } from '@angular/router';
 
 @Component({
   selector: 'home',
@@ -13,20 +14,22 @@ export class LoginComponent {
   userName = '';
   password = '';
 
-  constructor(private authService: Auth) {}
+  constructor(
+    private authService: Auth,
+    private router: Router,
+  ) {}
 
-  // Esta función se ejecutará al pulsar el botón
+  // Se ejecutará al pulsar el botón del formulario de login
   intentarLogin() {
-    // Llamamos al método login de tu servicio pasándole los datos
+    // Comprobar si los datos introducidos son correctos
     const exito = this.authService.login({
       userName: this.userName,
       password: this.password,
     });
 
-    // Comprobamos la respuesta
+    // Comprobar la respuesta
     if (exito) {
-      alert('¡Login correcto! Hola, ' + this.authService.getUserName());
-      // (Más adelante aquí pondremos el código para llevarlo al Home)
+      this.router.navigate(['/']);
     } else {
       alert('Error: Usuario o contraseña incorrectos.');
     }

@@ -54,4 +54,9 @@ export class Auth {
     getUserName(): string {
         return this.currentUserName;
     }
+
+    setUserName(userName: string): void {
+        this.currentUserName = userName;
+        localStorage.setItem('userName', userName);
+    }
 }

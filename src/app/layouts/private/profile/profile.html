@@ -1,6 +1,6 @@
 <div class="flex justify-center bg-gray-50 p-4">
-    <div class="w-full max-w-xl bg-pink-100 p-6 rounded-xl shadow-lg">
-        <div class="bg-pink-400 p-6 rounded-lg shadow-inner">
+    <div class="w-full max-w-xl bg-gray-100 p-6 rounded-xl shadow-lg">
+        <div class="p-6 rounded-lg shadow-inner shadow-gray-300">
             <h1 class="text-2xl font-bold mb-6 text-gray-800 text-center">Mi Perfil:</h1>
 
             <div class="flex flex-col gap-4">
@@ -8,11 +8,11 @@
                     type="text"
                     [(ngModel)]="username"
                     placeholder="Email (ej. master@lemoncode.net)"
-                    class="border border-gray-300 p-3 rounded focus:outline-none focus:border-blue-500 w-full"
+                    class="border border-gray-300 p-3 rounded focus:outline-none focus:border-blue-500 w-full shadow"
                 />
 
                 <button
-                    class="bg-blue-600 text-white font-bold py-3 px-4 rounded hover:bg-blue-700 transition-colors"
+                    class="bg-blue-600 text-white font-bold py-3 px-4 rounded hover:bg-blue-700 transition-colors cursor-pointer"
                     (click)="actualizarNombreUsuario()"
                 >
                     Guardar

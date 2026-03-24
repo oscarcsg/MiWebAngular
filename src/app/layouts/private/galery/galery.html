@@ -1,1 +1,77 @@
-<p>galery works!</p>
+<div class="max-w-4xl mx-auto mt-10 p-6 bg-white rounded-xl shadow-lg border border-gray-200">
+    <h2 class="text-2xl font-bold mb-6 text-gray-800 text-center">Mi Galería</h2>
+
+    <div
+        class="flex justify-center items-center h-150 mb-8 bg-gray-100 rounded-lg overflow-hidden border border-gray-300"
+    >
+        <img
+            [src]="imagenes[currentIndex]"
+            alt="Imagen en grande"
+            class="transition-all duration-300 object-contain"
+            [style.width.px]="anchoImagen"
+        />
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-4 mb-8">
+        <button
+            (click)="anterior()"
+            [disabled]="currentIndex === 0"
+            class="px-5 py-2 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors cursor-pointer"
+        >
+            Anterior
+        </button>
+
+        <button
+            (click)="siguiente()"
+            [disabled]="currentIndex === imagenes.length - 1"
+            class="px-5 py-2 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors cursor-pointer"
+        >
+            Siguiente
+        </button>
+
+        <button
+            (click)="aumentar()"
+            class="px-5 py-2 bg-emerald-600 text-white font-semibold rounded hover:bg-emerald-700 transition-colors cursor-pointer"
+        >
+            Aumentar
+        </button>
+
+        <button
+            (click)="disminuir()"
+            class="px-5 py-2 bg-emerald-600 text-white font-semibold rounded hover:bg-emerald-700 transition-colors cursor-pointer"
+        >
+            Disminuir
+        </button>
+
+        @if (!isPlaying) {
+            <button
+                (click)="play()"
+                class="px-5 py-2 bg-purple-600 text-white font-semibold rounded hover:bg-purple-700 transition-colors cursor-pointer"
+            >
+                Play ▶
+            </button>
+        } @else {
+            <button
+                (click)="stop()"
+                class="px-5 py-2 bg-red-600 text-white font-semibold rounded hover:bg-red-700 transition-colors cursor-pointer animate-pulse"
+            >
+                Stop ⏸
+            </button>
+        }
+    </div>
+
+    <div class="flex justify-center gap-4 overflow-x-auto py-4 px-2">
+        @for (img of imagenes; track $index) {
+            <img
+                [src]="img"
+                alt="Miniatura"
+                class="w-24 h-24 object-cover rounded-md cursor-pointer border-4 transition-all duration-200"
+                [class.border-blue-600]="currentIndex === $index"
+                [class.border-transparent]="currentIndex !== $index"
+                [class.opacity-60]="currentIndex !== $index"
+                [class.hover:opacity-100]="currentIndex !== $index"
+                (click)="seleccionarImagen($index)"
+            />
+        }
+    </div>
+</div>

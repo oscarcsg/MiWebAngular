@@ -6,14 +6,14 @@ import { DashboardComponent } from './layouts/private/dashboard/dashboard';
 import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
-  // PÚBLICAS
-  { path: '', component: HomeComponent },
-  { path: '#', component: HomeComponent },
-  { path: 'acerca-de', component: AcercaDeComponent },
-  { path: 'login', component: LoginComponent },
+    // PÚBLICAS
+    { path: '', component: HomeComponent },
+    { path: '#', component: HomeComponent },
+    { path: 'acerca-de', component: AcercaDeComponent },
+    { path: 'login', component: LoginComponent },
 
-  // PRIVADAS
-  { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },
+    // PRIVADAS
+    { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },
 
-  { path: '**', redirectTo: '', pathMatch: 'full' },
+    { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

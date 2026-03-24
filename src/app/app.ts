@@ -5,11 +5,11 @@ import { HeaderComponent } from './components/header/header';
 import { HomeComponent } from './layouts/public/home/home';
 
 @Component({
-  selector: 'app-root',
-  imports: [FooterComponent, HeaderComponent, RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.css',
+    selector: 'app-root',
+    imports: [FooterComponent, HeaderComponent, RouterOutlet],
+    templateUrl: './app.html',
+    styleUrl: './app.css',
 })
 export class App {
-  protected readonly title = signal('mi-web-angular');
+    protected readonly title = signal('mi-web-angular');
 }

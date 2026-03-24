@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Auth } from '../../../auth';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'private-header',
@@ -9,9 +9,13 @@ import { RouterLink } from '@angular/router';
   templateUrl: './he-private.component.html',
 })
 export class PrivateHeaderComponent {
-  constructor(public auth: Auth) {}
+  constructor(
+    public auth: Auth,
+    private router: Router,
+  ) {}
 
   logout() {
     this.auth.logout();
+    this.router.navigate(['/']);
   }
 }

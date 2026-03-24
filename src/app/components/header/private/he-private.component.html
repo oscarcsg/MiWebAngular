@@ -1,16 +1,25 @@
 <ul class="flex items-center gap-6 text-gray-600 font-medium">
   <li>
-    <a href="#" class="hover:text-blue-600 transition-colors duration-200">Home</a>
-  </li>
-  <li>
-    <a href="#" class="hover:text-blue-600 transition-colors duration-200">Acerca De</a>
-  </li>
-  <li>
-    <a
-      href="#"
-      class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-200"
+    <a routerLink="/dashboard" class="hover:text-blue-600 transition-colors duration-200"
+      >Dashboard</a
     >
-      Login
-    </a>
+  </li>
+  <li>
+    <a routerLink="/galeria" class="hover:text-blue-600 transition-colors duration-200">Galería</a>
+  </li>
+  <li><a routerLink="/crud" class="hover:text-blue-600 transition-colors duration-200">CRUD</a></li>
+  <li>
+    <a routerLink="/profile" class="hover:text-blue-600 transition-colors duration-200">Perfil</a>
+  </li>
+  <li>
+    <div class="flex pl-8 gap-6">
+      <p>{{ this.auth.getUserName() }}</p>
+      <button
+        class="cursor-pointer hover:text-blue-600 transition-colors duration-200"
+        (click)="logout()"
+      >
+        LogOut
+      </button>
+    </div>
   </li>
 </ul>

@@ -29,7 +29,7 @@ export class LoginComponent {
 
     // Comprobar la respuesta
     if (exito) {
-      this.router.navigate(['/']);
+      this.router.navigate(['/dashboard']);
     } else {
       alert('Error: Usuario o contraseña incorrectos.');
     }

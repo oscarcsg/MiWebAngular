@@ -4,6 +4,10 @@
   <p class="text-xl font-bold text-gray-800 shrink-0">Mi Página Web</p>
 
   <nav>
-    <public-header />
+    @if (auth.isLogged() != true) {
+      <public-header />
+    } @else {
+      <private-header />
+    }
   </nav>
 </header>
